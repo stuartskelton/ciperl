@@ -1,0 +1,21 @@
+---
+resource_types:
+  - name: ubuntu
+    type: docker-image
+    source:
+      repository: ubuntu
+      tag: trusty
+
+resources:
+  - name: ciperl
+    type: git
+    source:
+      uri: https://github.com/stuartskelton/ciperl
+      branch: master
+
+jobs:
+  - name: Run tests
+    plan:
+      - get: ciperl
+      - task: run the test suite
+        file: ciperl/ci/tasks/run_tests.yml

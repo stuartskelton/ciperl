@@ -1,0 +1,14 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ubuntu
+    tag: trusty
+
+inputs:
+  - name: ciperl_repo
+
+run:
+  path: ci/scripts/run_tests.sh
